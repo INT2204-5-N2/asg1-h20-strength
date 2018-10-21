@@ -50,7 +50,7 @@ Dòng 2: Nhập giải thích sang tiếng Việt
  
     }
 /**
- * Hàm insertFromFile() nhập dữ liệu từ điển từ tệp E_V.txt 
+ * Hàm insertFromFile() nhập dữ liệu từ điển từ tệp Anh-Viet.txt 
  * @return 
  */
     public Dictionary insertFromFile(){
@@ -67,9 +67,9 @@ Dòng 2: Nhập giải thích sang tiếng Việt
                 Word word = new Word();
 //                String temp;
 //                temp = br.readLine();
-                String [] lib = textInLine.split("\t"); // cái này là cái gì đây?? tách từ
+                String [] lib = textInLine.split("\t"); 
                 String target;
-                 target = lib[0];// m cứ làm như trk m làm đi
+                 target = lib[0];
                  String explain = lib[1];
                  word.setWord_explain(explain);
                  word.setWord_target(target);
@@ -123,7 +123,7 @@ Dòng 2: Nhập giải thích sang tiếng Việt
       BufferedWriter bw = null;
       FileWriter fw = null;
        try {
-          File file = new File("D:\\GITHUB\\asg1-thinh-linh\\tudienn\\src\\tudienn\\E_V.txt");
+          File file = new File(""C:\\Users\\ADMIN\\Documents\\GitHub\\asg1-h20-strength\\Anh-Viet.txt");
              fw = new FileWriter(file.getAbsoluteFile(), true);
             bw = new BufferedWriter(fw);
              bw.write("\n"+wTarget+wExplain);
