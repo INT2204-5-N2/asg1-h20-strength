@@ -49,10 +49,7 @@ Dòng 2: Nhập giải thích sang tiếng Việt
         return dictionary;
  
     }
-/**
- * Hàm insertFromFile() nhập dữ liệu từ điển từ tệp Anh-Viet.txt 
- * @return 
- */
+
     public Dictionary insertFromFile(){
         Dictionary d = new Dictionary();
         List<Word> listWords= new ArrayList<Word>();
@@ -156,8 +153,6 @@ Dòng 2: Nhập giải thích sang tiếng Việt
     
     public Dictionary DelWord( String s,Dictionary d){
        Word w = this.dictionaryLookup(d, s);
-        //if(w.getWord_explain().equals("khong tim dc tu")) return d;
-        //else {
             d.getWords().remove(w);
             return d;
         }
@@ -188,8 +183,6 @@ Dòng 2: Nhập giải thích sang tiếng Việt
             
             File file = new File("Anh-Viet.txt");
             bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),"UTF8"));
-            //fw = new FileWriter(file.getAbsoluteFile());
-           // bw = new BufferedWriter(fw);
             List<Word> wordsToFile = d.getWords();
              for(Word w: wordsToFile){
                  bw.write(w.getWord_target()+w.getWord_explain()+"\n");
