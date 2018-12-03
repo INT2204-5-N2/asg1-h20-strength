@@ -71,6 +71,8 @@ Xem comment ở các starter project
 
 *Tham khảo*:
 - Mã nguồn các starter project được tham khảo và chỉnh sửa từ [đây](https://github.com/carlosflorencio/bomberman)
+
+
 Hướng dẫn chi tiết
 Project được xây dựng xây dựng hoàn toàn bằng các thư viện có sẵn của java với đồ họa sử dụng Java Swing.
 
