@@ -4,12 +4,14 @@ import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.AnimatedEntitiy;
 import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.level.Coordinates;
 
 public class Bomb extends AnimatedEntitiy {
 
-	protected double _timeToExplode = 120; //2 seconds
+	protected double _timeToExplode = 120; 
 	public int _timeAfter = 20;
 	
 	protected Board _board;
@@ -75,13 +77,13 @@ public class Bomb extends AnimatedEntitiy {
 	protected void explode() {
 		_exploded = true;
 		
-		// TODO: xử lý khi Character đứng tại vị trí Bomb
+		// TODO: x? l� Character khi ??ng t?i v? tr� Bom
 		uet.oop.bomberman.entities.character.Character c 
                             = _board.getCharAt((int)_x,(int) _y);
 		if(c != null)  {
 			c.kill();
 		}
-		// TODO: tạo các Flame
+		// TODO: t?o ra c�c Flame
                 _flames = new Flame[4];
                 for(int i = 0; i < 4; i++) {
                     _flames[i] = new Flame((int)_x, (int)_y, i, Game.getBombRadius(), _board);
@@ -103,8 +105,24 @@ public class Bomb extends AnimatedEntitiy {
 
 	@Override
 	public boolean collide(Entity e) {
-        // TODO: xử lý khi Bomber đi ra sau khi vừa đặt bom (_allowedToPassThru)
-        // TODO: xử lý va chạm với Flame của Bomb khác
+        // TODO: x? l� khi bomber ra kh?i v? tr� ??t bom (_allowedToPassThru)
+        // TODO: x? l� khi va ch?m v?i c�c Flame c?a c�c Bom kh�c
+        if(e instanceof Bomber) {
+            double diffX = e.getX() - Coordinates.tileToPixel(getX());
+			double diffY = e.getY() - Coordinates.tileToPixel(getY());
+
+			if(!(diffX >= -10 && diffX < 16 && diffY >= 1 && diffY <= 28)) {
+				_allowedToPassThru = false;
+			}
+
+			return _allowedToPassThru;
+        }
+        if(e instanceof Flame) {
+           _timeToExplode=0;
+            return true;
+        }
+        
         return false;
 	}
+       
 }
