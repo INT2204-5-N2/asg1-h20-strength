@@ -14,8 +14,8 @@ public class FlameSegment extends Entity {
 	 * @param x
 	 * @param y
 	 * @param direction
-	 * @param last cho biết segment này là cuối cùng của Flame hay không,
-	 *                segment cuối có sprite khác so với các segment còn lại
+	 * @param last cho bi?t segment n�y l� cu?i c�ng c?a Flame hay kh�ng,
+	 *                segment cu?i c� sprite kh�c so v?i c�c segment c�n l?i
 	 */
 	public FlameSegment(int x, int y, int direction, boolean last) {
 		_x = x;
@@ -67,8 +67,7 @@ public class FlameSegment extends Entity {
 
 	@Override
 	public boolean collide(Entity e) {
-		// TODO: xử lý khi FlameSegment va chạm với Character
-                
+		// TODO: x? l� khi FlameSegment va ch?m v?i Character
 		return true;
 	}
 	

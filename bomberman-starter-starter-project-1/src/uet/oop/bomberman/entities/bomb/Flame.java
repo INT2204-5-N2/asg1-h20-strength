@@ -16,10 +16,10 @@ public class Flame extends Entity {
 
 	/**
 	 *
-	 * @param x hoành độ bắt đầu của Flame
-	 * @param y tung độ bắt đầu của Flame
-	 * @param direction là hướng của Flame
-	 * @param radius độ dài cực đại của Flame
+	 * @param x ho�nh ?? b?t ??u c?a Flame
+	 * @param y tung ?? b?t ??u c?a Flame
+	 * @param direction l� h??ng c?a Flame
+	 * @param radius ?? d�i c?c ??i c?a Flame
 	 */
 	public Flame(int x, int y, int direction, int radius, Board board) {
 		xOrigin = x;
@@ -33,21 +33,23 @@ public class Flame extends Entity {
 	}
 
 	/**
-	 * Tạo các FlameSegment, mỗi segment ứng một đơn vị độ dài
+	 * T?o c�c FlameSegment, m?i segment ?ng m?t ??n v? ?? d�i
 	 */
 	private void createFlameSegments() {
 		/**
-		 * tính toán độ dài Flame, tương ứng với số lượng segment
+		 * t�nh to�n ?? d�i Flame, t??ng ?ng v?i s? l??ng segment
 		 */
+                
 		_flameSegments = new FlameSegment[calculatePermitedDistance()];
 
 		/**
-		 * biến last dùng để đánh dấu cho segment cuối cùng
+		 * bi?n last d�ng ?? ?�nh d?u cho segment cu?i c�ng
 		 */
+                
 		boolean last;
 
-		// TODO: tạo các segment dưới đây
-                int x = (int)_x;
+		// TODO: t?o c�c segment d??i ?�y		
+		int x = (int)_x;
 		int y = (int)_y;
 		for (int i = 0; i < _flameSegments.length; i++) {
 			last = i == _flameSegments.length -1 ? true : false;
@@ -63,11 +65,11 @@ public class Flame extends Entity {
 	}
 
 	/**
-	 * Tính toán độ dài của Flame, nếu gặp vật cản là Brick/Wall, độ dài sẽ bị cắt ngắn
+	 * T�nh to�n ?? d�i c?a Flame, n?u g?p v?t c?n l� Brick/Wall, ?? d�i s? b? c?t ng?n
 	 * @return
 	 */
 	private int calculatePermitedDistance() {
-		// TODO: thực hiện tính toán độ dài của Flame
+		// TODO: th?c hi?n t�nh to�n ?? d�i c?a Flame
                 int length = 0;
                 int x = (int) _x;
                 int y = (int) _y;
@@ -86,7 +88,6 @@ public class Flame extends Entity {
                 }
 		return length;
 	}
-	
 	
 	public FlameSegment flameSegmentAt(int x, int y) {
 		for (int i = 0; i < _flameSegments.length; i++) {
@@ -108,10 +109,10 @@ public class Flame extends Entity {
 
 	@Override
 	public boolean collide(Entity e) {
-		// TODO: xử lý va chạm với Bomber, Enemy. Chú ý đối tượng này có vị trí chính là vị trí của Bomb đã nổ
-                if(e instanceof Bomber){
+		// TODO: x? l� va ch?m v?i Bomber, Enemy. Ch� � ??i t??ng n�y c� v? tr� ch�nh l� v? tr� c?a Bomb ?� n?
+                if(e instanceof Bomber) {
                     ((Bomber)e).kill();
-                    }
+                }
                 else if(e instanceof Enemy) {
                     ((Enemy) e).kill();
                 }

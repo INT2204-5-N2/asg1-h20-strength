@@ -11,7 +11,7 @@ import uet.oop.bomberman.level.Coordinates;
 
 public class Bomb extends AnimatedEntitiy {
 
-	protected double _timeToExplode = 120; 
+	protected double _timeToExplode = 120; //2 seconds
 	public int _timeAfter = 20;
 	
 	protected Board _board;
@@ -72,23 +72,24 @@ public class Bomb extends AnimatedEntitiy {
 	}
 
     /**
-     * Xá»­ lÃ½ Bomb ná»•
+     * X? lý Bomb n?
      */
 	protected void explode() {
-		_exploded = true;
+                 _allowedToPassThru = true;
+		 _exploded = true;
 		
-		// TODO: x? lý Character khi ??ng t?i v? trí Bom
+		// TODO: x? l? khi Character ??ng t?i v? tr? Bomb
 		uet.oop.bomberman.entities.character.Character c 
                             = _board.getCharAt((int)_x,(int) _y);
 		if(c != null)  {
 			c.kill();
 		}
-		// TODO: t?o ra các Flame
+				
+		// TODO: t?o c?c Flame
                 _flames = new Flame[4];
                 for(int i = 0; i < 4; i++) {
                     _flames[i] = new Flame((int)_x, (int)_y, i, Game.getBombRadius(), _board);
                 }
-	
 	}
 	
 	public FlameSegment flameAt(int x, int y) {
@@ -105,8 +106,8 @@ public class Bomb extends AnimatedEntitiy {
 
 	@Override
 	public boolean collide(Entity e) {
-        // TODO: x? lý khi bomber ra kh?i v? trí ??t bom (_allowedToPassThru)
-        // TODO: x? lý khi va ch?m v?i các Flame c?a các Bom khác
+       /// TODO: x? l? khi Bomber ?i ra sau khi v?a ??t bom (_allowedToPassThru)
+       //  TODO: x? l? va ch?m v?i Flame c?a Bomb kh?c
         if(e instanceof Bomber) {
             double diffX = e.getX() - Coordinates.tileToPixel(getX());
 			double diffY = e.getY() - Coordinates.tileToPixel(getY());
@@ -118,11 +119,11 @@ public class Bomb extends AnimatedEntitiy {
 			return _allowedToPassThru;
         }
         if(e instanceof Flame) {
+           // explode();
            _timeToExplode=0;
             return true;
         }
         
         return false;
 	}
-       
 }
