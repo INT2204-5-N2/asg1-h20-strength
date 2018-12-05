@@ -40,7 +40,6 @@ public class DestroyableTile extends Tile {
 		// TODO: xử lý khi va chạm với Flame
                 if(e instanceof Flame) {
 			destroy();
-			_removed = true;
 		}
 		return false;
 	}
