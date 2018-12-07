@@ -4,7 +4,7 @@ import uet.oop.bomberman.Board;
 import uet.oop.bomberman.exceptions.LoadLevelException;
 
 /**
- * Load và lưu trữ thông tin bản đồ các màn chơi
+ * Load vÃ  lÆ°u trá»¯ thÃ´ng tin báº£n Ä‘á»“ cÃ¡c mÃ n chÆ¡i
  */
 public abstract class LevelLoader {
 
