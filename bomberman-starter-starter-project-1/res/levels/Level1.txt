@@ -14,13 +14,13 @@
 ###############################
 
 
-Mô tả cấu trúc tệp cấu hình màn chơi:
-1/ Dòng đầu tiên bao gồm 3 số nguyên L, R, C:
-L - số thứ tự màn chơi
-R - số hàng của bản đồ
-C - số cột của bản đồ
+M� t? c?u tr�c t?p c?u h�nh m�n ch?i:
+1/ D�ng ??u ti�n bao g?m 3 s? nguy�n L, R, C:
+L - s? th? t? m�n ch?i
+R - s? h�ng c?a b?n ??
+C - s? c?t c?a b?n ??
 
-2/ R dòng tiếp theo, mỗi dòng có C kí tự. Mỗi kí tự đại diện cho một đối tượng trên bản đồ:
+2/ R d�ng ti?p theo, m?i d�ng c� C k� t?. M?i k� t? ??i di?n cho m?t ??i t??ng tr�n b?n ??:
 Tiles:
 # - Wall
 * - Brick
@@ -36,4 +36,4 @@ b - Bomb Item
 f - Flame Item
 s - Speed Item
 
-Kí tự khác các kí tự trên - Grass
+K� t? kh�c c�c k� t? tr�n - Grass
