@@ -15,31 +15,43 @@ public class AIMedium extends AI {
 	@Override
 	public int calculateDirection() {
 		// TODO: cài ??t thu?t toán tìm ???ng ?i
-		int rowOrCol = random.nextInt(2);
-		if(rowOrCol == 0){
-			if(ringhtOrLeft() != 10) // 10 means this enemy and bomber are on the same row
-				return ringhtOrLeft();
-			return upOrDown();
+                if(_bomber == null)
+			return random.nextInt(4);
+		
+		int vertical = random.nextInt(2);
+		
+		if(vertical == 1) {
+			int v = calculateRowDirection();
+			if(v != -1)
+				return v;
+			else
+				return calculateColDirection();
+			
+		} else {
+			int h = calculateColDirection();
+			
+			if(h != -1)
+				return h;
+			else
+				return calculateRowDirection();
 		}
-		else {
-			if (upOrDown() != 10)// 10 means this enemy and bomber are on the same column
-				return upOrDown();
-			return ringhtOrLeft();
-		}
+		
 	}
-
-	private int upOrDown(){
+        protected int calculateColDirection() {
 		if(_bomber.getXTile() < _e.getXTile())
 			return 3;
 		else if(_bomber.getXTile() > _e.getXTile())
 			return 1;
-		return 10;
+		
+		return -1;
 	}
-	private int ringhtOrLeft(){
+	
+	protected int calculateRowDirection() {
 		if(_bomber.getYTile() < _e.getYTile())
 			return 0;
 		else if(_bomber.getYTile() > _e.getYTile())
 			return 2;
-		return 10;
+		return -1;
 	}
+
 }
