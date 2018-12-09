@@ -14,7 +14,7 @@ public class Portal extends Tile {
 	
 	@Override
 	public boolean collide(Entity e) {
-		// TODO: xá»­ lÃ½ khi Bomber Ä‘i vÃ o
+		// TODO: x? l� khi bommer ?i v�o c?a
 		if(e instanceof Bomber ) {
 
 			if(_board.detectNoEnemies() == false)

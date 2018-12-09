@@ -24,8 +24,8 @@ public class Bomber extends Character {
     protected Keyboard _input;
     public static List<Item> _powerups = new ArrayList<Item>();
     /**
-     * n?u giá tr? này < 0 thì cho phép ??t ??i t??ng Bomb ti?p theo,
-     * c? m?i l?n ??t 1 Bomb m?i, giá tr? này s? ???c reset v?? 0 và gi?m d?n trong m?i l?n update()
+     * n?u giá tr? này nho hon 0 thì cho phép ??t ??i t??ng Bomb ti?p theo,
+     * c? m?i l?n ??t 1 Bomb m?i, giá tr? này s? ???c reset v? 0 và gi?m d?n trong m?i l?n update()
      */
     protected int _timeBetweenPutBombs = 0;
 
@@ -77,7 +77,7 @@ public class Bomber extends Character {
 
    
     /**
-     * Ki?m tra xem c? ??t ???c bom hay kh?ng? n?u c? th? ??t bom t?i v? tr? hi?n t?i c?a Bomber
+     * Ki?m tra xem có ??t ???c bom hay không? n?u có thì ??t bom t?i v? trí hi?n t?i c?a Bomber
      */
     private void detectPlaceBomb() {
         // TODO: ki?m tra xem ph?m ?i?u khi?n ??t bom c? ???c g? v? gi? tr? _timeBetweenPutBombs, Game.getBombRate() c? th?a m?n hay kh?ng
@@ -96,7 +96,7 @@ public class Bomber extends Character {
     }
 
     protected void placeBomb(int x, int y) {
-         // TODO: th?c hi?n t?o ??i t??ng bom, ??t v?o v? tr? (x, y)
+         // TODO: th?c hi?n t?o ??i t??ng bom, d?t vào v? trí (x, y)
          Bomb b = new Bomb(x, y, _board);
          _board.addBomb(b);
     }
@@ -131,8 +131,8 @@ public class Bomber extends Character {
 
     @Override
     protected void calculateMove() {
-        // TODO: x? l? nh?n t?n hi?u ?i?u khi?n h??ng ?i t? _input v? g?i move() ?? th?c hi?n di chuy?n
-        // TODO: nh? c?p nh?t l?i gi? tr? c? _moving khi thay ??i tr?ng th?i di chuy?n
+        // TODO: x? lí nh?n tín hi?u ?i?u khi?n h??ng ?i t? _input và g?i move() ?? th?c hi?n di chuy?n
+        // TODO: nh? c?p nh?t l?i giá tr? c? _moving khi thay ??i tr?ng thái di chuy?n
         int x = 0; 
         int y = 0;
         if(_input.up) y--;
@@ -167,8 +167,8 @@ public class Bomber extends Character {
 
     @Override
     public void move(double xa, double ya) {
-        // TODO: s? d?ng canMove() ?? ki?m tra xem c? th? di chuy?n t?i ?i?m ?? t?nh to?n hay kh?ng v? th?c hi?n thay ??i t?a ?? _x, _y
-        // TODO: nh? c?p nh?t gi? tr? _direction sau khi di chuy?n
+        // TODO: s? d?ng canMove() ?? ki?m tra xem có th? di chuy?n t?i ?i?m ?ã tính toán hay không và th?c hi?n thay ??i t?a ?? _x, _y
+        // TODO: nh? c?p nh?t giá tr? _direction sau khi di chuy?n
             if(ya < 0) _direction = 0;
             if(xa > 0) _direction = 1;
             if(ya > 0) _direction = 2;
@@ -179,15 +179,12 @@ public class Bomber extends Character {
                   _x += xa;
             }
 
-//            if(canMove(xa, 0)) {
-//                _x += xa;
-//            }
     }
 
     @Override
     public boolean collide(Entity e) {
-         // TODO: x? l? va ch?m v?i Flame
-        // TODO: x? l? va ch?m v?i Enemy
+         // TODO: x? lí va ch?m v?i Flame
+        // TODO: x? lí va ch?m v?i Enemy
         if(e instanceof Flame || e instanceof Enemy) {
             kill();
             return true;
